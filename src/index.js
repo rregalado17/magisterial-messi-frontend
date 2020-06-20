@@ -22,7 +22,7 @@ const renderTeam = (teamData) => {
   div.setAttribute("class", "card")
   div.setAttribute("data-id", teamData["id"])
   p.innerHTML = teamData.name
-  button.setAttribute("data-player-id", teamData["id"])
+  button.setAttribute("data-team-id", teamData["id"])
   button.innerHTML = "Add A New Player"
   button.addEventListener("click", createPlayer)
 
@@ -40,18 +40,47 @@ const renderPlayer = (player) => {
   const button = document.createElement("button")
   
   li.innerHTML = `${player.name}`
-  button.setAttribute("class", "bench")
+  button.setAttribute("class", "sack")
   button.setAttribute("data-player-id", player.id)
   button.innerHTML = "Sack this player"
+  button.addEventListener("click", deletePlayer)
 
   li.appendChild(button)
   ul.appendChild(li)
 }
 
-const createPlayer = () => {
+const createPlayer = (e) => {
+  e.preventDefault()
+  const configObj = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({team_id: e.target.dataset.teamId})
+  }
 
+  fetch(PLAYERS_URL, configObj)
+  .then(resp => resp.json())
+  .then(json => {
+    if (json.message){
+      alert(json.message)
+    } else {
+      renderPlayer(json)
+    }
+  })
 }
 
-const deletePlayer = () => {
-  
-}
+const deletePlayer = (e) => {
+  e.preventDefault()
+
+  const configObj = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json", 
+      "Accept": "application/json"
+    }
+  }
+  fetch(`${PLAYERS_URL}/${e.target.dataset.playerId}`, configObj)
+  e.target.parentElement.remove()
+} 
