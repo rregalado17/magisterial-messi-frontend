@@ -7,4 +7,17 @@ class TeamsAdapter {
         return fetch(this.baseUrl)
         .then(resp => resp.json())
     }
+
+    createTeam(value){
+        const team = {
+            name: value
+        }
+        return fetch(this.baseUrl, {            
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({team}),
+        }).then(res => res.json())
+    }
 }
