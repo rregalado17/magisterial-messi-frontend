@@ -1,9 +1,12 @@
+const app = new App()
 const BASE_URL = 'http://www.localhost:3000';
 const TEAMS_URL = `${BASE_URL}/teams`
 const PLAYERS_URL = `${BASE_URL}/players`
 const main = document.querySelector("main")
 
 document.addEventListener("DOMContentLoaded", () => loadTeams())
+
+
 
 
 const loadTeams = () => {
