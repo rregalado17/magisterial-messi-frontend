@@ -5,6 +5,7 @@ const main = document.querySelector("main")
 
 document.addEventListener("DOMContentLoaded", () => loadTeams())
 
+
 const loadTeams = () => {
   fetch(TEAMS_URL)
   .then(resp => resp.json())
