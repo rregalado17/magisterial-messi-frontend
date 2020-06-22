@@ -1,5 +1,6 @@
 class App {
-    constructor(){
+    constructor(){        
+        this.players = new Players()
         this.teams = new Teams()
     }
 }

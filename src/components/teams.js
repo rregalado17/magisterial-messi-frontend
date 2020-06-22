@@ -10,21 +10,22 @@ class Teams {
         this.teamForm = document.getElementById('new-team-form')
         this.newTeamId = document.getElementById('new-team-id')
         this.teamForm.addEventListener('submit', this.createTeam.bind(this))
-
     }
 
     createTeam(e){
         e.preventDefault()
-        const value = this.newTeamId.value
-
+        const newTeam = document.querySelector(`div[data-id]`)
+        const value = this.newTeamId.value 
         this.adapter.createTeam(value).then(team => {
             this.teams.push(new Team(team))
+            this.render(team)
         })
     }
 
     fetchAndLoadTeams() {
         this.adapter
-        .getTeams().then(json => {
+        .getTeams()
+        .then(json => {
             json.forEach(team => this.render(team))
         })
     }
@@ -39,8 +40,10 @@ class Teams {
         div.setAttribute("data-id", teamData["id"])
         p.innerHTML = teamData.name
                 
-        button.setAttribute("data-team-id", teamData["id"])
+        button.setAttribute("data-team-id", teamData["id"]) 
         button.innerHTML = "Add A New Player"
+
+        
         //button.addEventListener("click", createPlayer)
             
         div.appendChild(p)
