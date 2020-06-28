@@ -3,4 +3,5 @@ class Team {
         this.id = teamJSON.id 
         this.name = teamJSON.name
     }
+
 }

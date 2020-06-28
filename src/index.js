@@ -1,48 +1,62 @@
+//const body = document.querySelector("body")
 const app = new App()
+// const BASE_URL = 'http://www.localhost:3000';
+// const TEAMS_URL = `${BASE_URL}/teams`
+// const PLAYERS_URL = `${BASE_URL}/players`
 
-const body = document.querySelector("body")
-
- 
 
 
-// //document.addEventListener("DOMContentLoaded", () => loadTeams())
+// document.addEventListener("DOMContentLoaded", () => loadTeams())
 
-// // const loadTeams = () => {
-// //   fetch(TEAMS_URL)
-// //   .then(resp => resp.json())
-// //   .then(json => {
-// //     json.forEach(team => renderTeam(team))
-// //   })
-// // }
+// const loadTeams = () => {
+//   fetch(TEAMS_URL)
+//   .then(resp => resp.json())
+//   .then(json => {
+//     json.forEach(team => renderTeam(team))
+//   })
+// }
+  
+//   //   .then(resp => resp.json())
+//   //   .then(json => {
+//   //       renderTeam(json)
+//   //   }
+//   // }
+//   // createTeam(e){
 
-// // const renderTeam = (teamData) => {
-// //   const div = document.createElement("div")
-// //   const p = document.createElement("p")
-// //   const button = document.createElement("button")
-// //   const ul = document.createElement("ul")
+//   //   this.adapter.createTeam(value).then(team => {
+//   //   this.teams.push(new Team(team))
+//   //   this.render(team)
+//   //     })
+//   //   }
 
-// //   div.setAttribute("class", "card")
-// //   div.setAttribute("data-id", teamData["id"])
-// //   p.innerHTML = teamData.name
+// const renderTeam = (teamData) => {
+//   const div = document.createElement("div")
+//   const p = document.createElement("p")
+//   const button = document.createElement("button")
+//   const ul = document.createElement("ul")
 
-// //   button.setAttribute("data-team-id", teamData["id"])
-// //   button.innerHTML = "Add A New Player"
-// //   button.addEventListener("click", createPlayer)
+//   div.setAttribute("class", "card")
+//   div.setAttribute("data-id", teamData["id"])
+//   p.innerHTML = teamData.name
 
-// //   div.appendChild(p)
-// //   div.appendChild(button)
-// //   div.appendChild(ul)
-// //   body.appendChild(div)
+//   button.setAttribute("data-team-id", teamData["id"])
+//   button.innerHTML = "Add A New Player"
+//   button.addEventListener("click", createPlayer)
 
-// //   teamData.players.forEach(player => renderPlayer(player))
-// // }
+//   div.appendChild(p)
+//   div.appendChild(button)
+//   div.appendChild(ul)
+//   body.appendChild(div)
+
+//   teamData.players.forEach(player => renderPlayer(player))
+// }
 
 // const renderPlayer = (player) => {
 //   const ul = document.querySelector(`div[data-id="${player.team_id}"]`)
 //   const li = document.createElement("li")
 //   const button = document.createElement("button")
   
-//   li.innerHTML = `${player.name}`
+//   li.innerHTML = `${player.first_name} ${player.last_name}`
 //   button.setAttribute("class", "sack")
 //   button.setAttribute("data-player-id", player.id)
 //   button.innerHTML = "Sack this player"

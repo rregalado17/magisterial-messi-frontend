@@ -1,36 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    
+
+   
   <head>
-      <h1>Magisterial Messi!</h1>
+    <h1>Magisterial Messi!</h1>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
 
-    <title>
-        Welcome to Magisterial Messi!
-    </title>
-    <main>
-      Build your team!
-      <div class="container">
-      <form id="new-team-form">
-        <input type="text" name="team-name" id="new-team-id">
-        <input type="submit" value="Build your team!">
-      </form>
-      <div id="teams-container"> 
-        
-      </div>
-    </main>
-  </head>
+  <title>Welcome to Magisterial Messi! </title>
   <body>
 
+  <div class="container">
+  <h1>Build your Team!</h1><br>
+    <div id="new-team-container">
+      <form id="new-team-form">
+      <input type="text" name="team-name" id="new-team-id">
+      <input type="submit" value="Build your team!">
+      </form>  
+    </div>
+    <div id="teams-content">
+      <div id="teams-container">
+       
+    </div>
+    <div id="team-show">
+
+    </div>
+      <div class="new-player-form">
+        <form id="create-new-player-form"></div>
+          <label name="player-first-name">Player First Name:</label><br>
+          <input type="text" name="player-name" id="new-player-id"><br>
+    
+          <label name="player-last-name">Player Surname:</label><br>
+          <input type="text" name="player-name" id="new-player-id"><br>
+          
+          <label name="player-offense">Player Offense:</label><br>
+          <input type="text" offense="player-offense" id="new-player-def"><br>
+    
+          <label name="player-defense">Player Defense:</label><br>
+          <input type="text" defense="player-defense" id="new-player-id"><br>
+    
+          <label name="player-age">Player Age:</label><br>
+          <input type="text" age="player-age" id="new-player-id"><br>
+          <input type="submit" value="Create Player"><br>
+    </div>  
+
+      
+        </form>
    </div>
-  <script src="src/components/teams.js"></script> 
-  <script src="src/components/team.js"></script>   
-  <script src="src/components/players.js"></script>
-  <script src="src/components/player.js"></script>      
-  <script src="src/components/app.js"></script>
-  <script src="src/adapters/TeamsAdapter.js"></script>
-  <script src="src/adapters/PlayersAdapter.js"></script>
-  <script src="src/index.js"></script>
+   <script src="src/adapters/TeamsAdapter.js"></script>
+   <script src="src/adapters/PlayersAdapter.js"></script>
+   <script src="src/components/teams.js"></script> 
+   <script src="src/components/team.js"></script>   
+   <script src="src/components/players.js"></script>
+   <script src="src/components/player.js"></script>      
+   <script src="src/components/app.js"></script>
+   <script src="src/index.js"></script>  
+
   </body>
-</html>
+
+</html>  
