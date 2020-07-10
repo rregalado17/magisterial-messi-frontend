@@ -5,6 +5,7 @@ class Teams {
         this.initBindingsAndEventListeners()
         this.fetchAndLoadTeams()
         this.renderTeamList()
+        this.players = new Players()
     }
 
     initBindingsAndEventListeners() {
@@ -16,7 +17,6 @@ class Teams {
         this.teamForm.addEventListener('submit', this.createTeam.bind(this))
         this.teamsContainer.addEventListener('dblclick', this.handleTeamClick.bind(this))
         this.body.addEventListener('blur', this.updateTeam.bind(this), true)
-
     }
 
     createTeam(e){
@@ -42,13 +42,6 @@ class Teams {
         const newValue = p.innerHTML
         const id = e.target.getAttribute('editid')
         this.adaptor.updateTeam(newValue, id)
-    }
-
-    deletePlayer(e){
-        e.preventDefault()
-        const ids = e.target.getAttribute('data-id')
-        this.adaptor.deletePlayer(ids)
-        e.target.parentElement.remove()
     }
 
     fetchAndLoadTeams() {
@@ -85,26 +78,7 @@ class Teams {
   
         div.appendChild(ul)
         this.teamsContainer.appendChild(div)
-        team.players.forEach(player => this.renderPlayer(player))
-    }
-
-    renderPlayer(player){
-        const teamDiv = document.querySelector(`div[data-id="${player.team_id}`);  
-        const li = document.createElement('li')
-        const button = document.createElement('button')
-
-        li.innerHTML = `${player.last_name}, ${player.first_name} 
-        <br>Offense: ${player.offense}
-        <br>Defense: ${player.defense}
-        <br>Age: ${player.age}<br>`
-        button.setAttribute('class', 'sack')
-        button.setAttribute('data-id', player.id)
-        button.innerHTML = "Sack this player!"
-            
-        li.appendChild(button)
-        teamDiv.appendChild(li)
-        button.addEventListener('click', this.deletePlayer.bind(this))
-
+        team.players.forEach(player => this.players.renderPlayer(player))
     }
 }
 

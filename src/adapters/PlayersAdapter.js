@@ -26,5 +26,19 @@ class PlayersAdapter{
             body: JSON.stringify({player}),
         }).then(res => res.json())
     }
+
+    deletePlayer(ids){
+        const player = {
+            id: ids
+        }
+        return fetch(`${this.baseUrl}/${ids}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({player}),
+        })
+    }
 }
 

@@ -34,20 +34,6 @@ class TeamsAdapter{
             body: JSON.stringify({team}),
         }).then(res => res.json())
     }
-
-    deletePlayer(ids){
-        const player = {
-            id: ids
-        }
-        return fetch(`${this.playerUrl}/${ids}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json", 
-                "Accept": "application/json"
-            },
-            body: JSON.stringify({player}),
-        })
-    }
 }
 
 
