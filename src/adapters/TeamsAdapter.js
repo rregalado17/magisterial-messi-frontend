@@ -46,7 +46,7 @@ class TeamsAdapter{
                 "Accept": "application/json"
             },
             body: JSON.stringify({player}),
-        })//.then(res => res.json())
+        })
     }
 }
 

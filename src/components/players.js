@@ -1,127 +1,46 @@
  class Players{
     constructor(){
-        this.Players = []
-        this.adaptor = new PlayersAdapter()
-        //this.bindEventListeners()
-        this.fetchAndLoadPlayers
+        this.players = []
+        this.adapter = new PlayersAdapter()
+        this.initBindingsAndEventListeners()
     }
 
-    // fetchAndLoadPlayers() {
-    //     this.adaptor.getPlayers()
-    //     .then(players => {
-    //         console.log(players)
-    //     })
-    // }
+    initBindingsAndEventListeners(){
+        this.body = document.querySelector('body')
+        this.playerForm = document.getElementById('create-new-player-form')
+        this.newFirstId = document.getElementById('new-first-id')
+        this.newLastId =  document.getElementById('new-last-id')
+        this.newOffenseId = document.getElementById('new-offense-id')
+        this.newDefenseId = document.getElementById('new-defense-id')
+        this.newAgeId = document.getElementById('new-age-id')
+        this.teamId = document.getElementById('selector')
+        this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
 
-    fetchAndLoadPlayers() {
-        this.adaptor.getPlayers()
-        .then(players => {
-            
-            players.forEach(player => this.render(player))
+    }
+
+    createPlayer(e){
+        e.preventDefault()
+        this.teamId = document.getElementById('selector')
+        const first_name = this.newFirstId.value
+        const last_name = this.newLastId.value
+        const offense = this.newOffenseId.value
+        const defense = this.newDefenseId.value
+        const age = this.newAgeId.value
+        const teamId = this.teamId.value
+        this.adapter.createPlayer(first_name, last_name, offense, defense, age, teamId).then(player => {
+            if (player.message){
+                alert(player.message)
+            } else {
+        }
+            this.newFirstId.value = ''
+            this.newLastId.value = ''
+            this.newOffenseId.value = ''
+            this.newDefenseId.value = ''
+            this.newAgeId.value = ''
+            this.teamId.value = ''
+            this.teams = new Teams()
+            this.teams.renderPlayer(player)
         })
     }
 
-//     renderPlayer(player){
-//         return console.log(player)
-//         // const teamsContainer = document.getElementById('teams-container')
-//         // teamsContainer.innerHTML = `${this.teams.map(team =>)}`
-//         // console.log('my teams are', this.teams)
-
-//         // //     render(players){
-//             const ul = document.querySelector(`div[data-id="${players.team_id}"]`)
-//             const li = document.createElement("li")
-//             const button = document.createElement("button")
-                
-//             li.innerHTML = `${player.name}`
-//             button.setAttribute("class", "sack")
-//             button.setAttribute("data-player-id", player.id)
-//             button.innerHTML = "Sack this player"
-//             //button.addEventListener("click", deletePlayer)
-            
-//             li.appendChild(button)
-//             ul.appendChild(li)
-        
-//     }
 }
-
-
-
-// // class Players { 
-// //     constructor() {
-// //         this.players = []
-// //         this.adapter = new PlayersAdapter()
-// //         this.initiateBindingsAndEventListeners() 
-// //         this.fetchAndLoadPlayers()
-// //     }
-
-// //     initiateBindingsAndEventListeners(){
-// //         // this.playerInit = document.getElementById('data-team-id')
-// //         // this.newPlayerId = document.getElementById('data-player-id')
-// //         // this.playerInit.addEventListener('click', this.createPlayer.bind(this))
-// //     }
-
-// //     createPlayer(e){
-// //         e.preventDefault()
-// //         const ul = document.querySelector(`div[data-id="${players.team_id}"]`)
-// //         const div = document.createElement("div")
-// //         const button = document.createElement("button")
-
-// //         button.setAttribute("data-team-id", teamData["id"]) 
-// //         button.innerHTML = "Add A Player"
-
-// //         div.appendChild(button)
-// //     }
-
-// //     // const renderPlayer = (player) => {
-// // //   const ul = document.querySelector(`div[data-id="${player.team_id}"]`)
-// // //   const li = document.createElement("li")
-// // //   const button = document.createElement("button")
-  
-// // //   li.innerHTML = `${player.first_name} ${player.last_name}`
-// // //   button.setAttribute("class", "sack")
-// // //   button.setAttribute("data-player-id", player.id)
-// // //   button.innerHTML = "Sack this player"
-// // //   button.addEventListener("click", deletePlayer)
-
-// // //   li.appendChild(button)
-// // //   ul.appendChild(li)
-// // // }
-
-// //     fetchAndLoadPlayers(){
-// //         this.adapter
-// //         .getPlayers()
-// //         .then(json => {
-// //             json.forEach(player => this.render(player))
-// //         })
-// //     }
-    
-// //     render(players){
-// //             const ul = document.querySelector(`div[data-id="${players.team_id}"]`)
-// //             const li = document.createElement("li")
-// //             const button = document.createElement("button")
-                
-// //             li.innerHTML = `${players.name}`
-// //             button.setAttribute("class", "sack")
-// //             button.setAttribute("data-player-id", players.id)
-// //             button.innerHTML = "Sack this player"
-// //             //button.addEventListener("click", deletePlayer)
-            
-// //             li.appendChild(button)
-// //             ul.appendChild(li)
-// //         }
-// //     }
-
-
-// //     // // const deletePlayer = (e) => {
-// //     // // e.preventDefault()
-
-// //     // // const configObj = {
-// //     // //     method: "DELETE",
-// //     // //     headers: {
-// //     // //     "Content-Type": "application/json", 
-// //     // //     "Accept": "application/json"
-// //     // //     }
-// //     // // }
-// //     // // fetch(`${PLAYERS_URL}/${e.target.dataset.playerId}`, configObj)
-// //     // // e.target.parentElement.remove()
-// //     // // } 

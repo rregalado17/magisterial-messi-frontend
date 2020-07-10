@@ -5,6 +5,6 @@ class Player {
         this.last_name = playerJSON.last_name
         this.offense = playerJSON.offense
         this.defense = playerJSON.defense 
-        this.age = playerJSON.age 
+        this.age = playerJSON.age
     }
 }

@@ -18,34 +18,34 @@
       <input type="submit" value="Build your team!">
       </form>  
     </div>
-    <div id="teams-content">
-      <div id="teams-container">
-       
-    </div>
-    <div id="team-show">
-
-    </div>
-      <div class="new-player-form">
-        <form id="create-new-player-form"></div>
-          <label name="player-first-name">Player First Name:</label><br>
-          <input type="text" name="player-name" id="new-player-id"><br>
+      <div id="new-player-form">
+        <form id="create-new-player-form">
+         <label name="player-first-name">Player First Name:</label><br>
+          <input type="text" name="player-name" id="new-first-id"><br>
     
-          <label name="player-last-name">Player Surname:</label><br>
-          <input type="text" name="player-name" id="new-player-id"><br>
+          <label name="player-last-name">Player Last Name:</label><br>
+          <input type="text" name="player-lastname" id="new-last-id"><br>
           
           <label name="player-offense">Player Offense:</label><br>
-          <input type="text" offense="player-offense" id="new-player-def"><br>
+          <input type="text" offense="player-offense" id="new-offense-id"><br>
     
           <label name="player-defense">Player Defense:</label><br>
-          <input type="text" defense="player-defense" id="new-player-id"><br>
+          <input type="text" defense="player-defense" id="new-defense-id"><br>
     
           <label name="player-age">Player Age:</label><br>
-          <input type="text" age="player-age" id="new-player-id"><br>
+          <input type="text" age="player-age" id="new-age-id"><br>
+          <select id="selector"></select><br>
           <input type="submit" value="Create Player"><br>
-    </div>  
-
-      
+    </div>
         </form>
+       
+        <div id="teams-content">
+          <div id="teams-container">
+           
+        </div>
+        <div id="team-show">
+    
+        </div>
    </div>
    <script src="src/adapters/TeamsAdapter.js"></script>
    <script src="src/adapters/PlayersAdapter.js"></script>
