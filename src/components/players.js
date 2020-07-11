@@ -38,9 +38,9 @@
             this.newAgeId.value = ''
             this.teamId.value = ''
             this.renderPlayer(player)
-            
         })
     }
+
     deletePlayer(e){
         e.preventDefault()
         const ids = e.target.getAttribute('data-id')
@@ -65,7 +65,5 @@
         teamDiv.appendChild(li)
         button.addEventListener('click', this.deletePlayer.bind(this))    
     }
-
-
 
 }
